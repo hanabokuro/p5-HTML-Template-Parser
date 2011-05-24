@@ -240,7 +240,46 @@ __END__
 
 =head1 NAME
 
-HTML::Template::Parser - Praser for HTML::Template syntax template file & tree writer.
+HTML::Template::Parser - Praser for HTML::Template syntax template file & writer.
+
+=head1 VERSION
+
+This document describes HTML::Template::Parser version 0.1.
+
+=head1 SYNOPSIS
+
+    use strict;
+    use warnings FATAL => qw(recursion);
+
+    use HTML::Template::Parser;
+    use HTML::Template::Parser::TreeWriter::TextXslate::Metakolon;
+
+    my $parser = HTML::Template::Parser->new;
+    my $list = $parser->parse("<TMPL_VAR EXPR=html(name)>");
+    my $tree = $parser->list_to_tree($list);
+
+    my $writer = HTML::Template::Parser::TreeWriter::TextXslate::Metakolon->new;
+    print $writer->write($tree);
+
+=head1 DESCRIPTION
+
+HTML::Template::Parser is parser module for tempalte file that is written in HTML::Template.
+It parse template file to tree object.
+It can write tree as TextXslate::Metakolon format.
+
+=head1 INTERFACE
+
+=head2 B<< HTML::Template::Parser->new() >>
+
+Creates a new tempalte parser.
+
+=head2 B<< $parser->parse($string) >>
+
+Parse $string to list.
+
+=head2 B<< $parser->list_to_tree($tree) >>
+
+Build tree from $list.
 
 =head1 AUTHOR
 
