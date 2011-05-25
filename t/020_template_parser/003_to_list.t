@@ -87,7 +87,7 @@ sub test_to_list {
     my($template_string, $expected) = @_;
 
     my $parser = HTML::Template::Parser->new;
-    my $list = $parser->parse($template_string);
+    my $list = $parser->_template_string_to_list($template_string);
 
     is_deeply($list, $expected, "template_string is [$template_string]") if($expected);
     if (0) {                    # for debug dump

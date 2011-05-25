@@ -19,7 +19,13 @@ use vars '$errorprefix';
 sub parse {
     my($self, $template_string) = @_;
 
-    my @ret;
+    $self->_list_to_tree($self->_template_string_to_list($template_string));
+}
+
+sub _template_string_to_list {
+    my($self, $template_string) = @_;
+
+    my @list;
     my($line, $column) = (1, 1); # 1 orign
     while($template_string =~ m!</?TMPL_!i){
         my $pre = $PREMATCH;
@@ -27,7 +33,7 @@ sub parse {
         my $tmp;
 
         # keep as plain text
-        push(@ret, ['string', [$line, $column], $pre]) if(length($pre));
+        push(@list, ['string', [$line, $column], $pre]) if(length($pre));
 
         # calc line & column
         $line += (($tmp = $pre) =~ s/\n//g);
@@ -53,7 +59,7 @@ sub parse {
             die "line $line. column $column. something wrong. Couldn't parse tag well\n[$first_line_of_tag][$first_line_of_error_string]\n";
         }
         splice(@$parsed_tag, 1, 0, [$line, $column]);
-        push(@ret, $parsed_tag);
+        push(@list, $parsed_tag);
 
         # calc line & column
         my $num_parsed = length($tag)-length($tag_temp);
@@ -65,11 +71,11 @@ sub parse {
 
         $template_string = $tag_temp;
     }
-    push(@ret, ['string', [$line, $column], $template_string]) if(length($template_string));
-    \@ret;
+    push(@list, ['string', [$line, $column], $template_string]) if(length($template_string));
+    \@list;
 }
 
-sub list_to_tree {
+sub _list_to_tree {
     my($self, $raw_list) = @_;
 
     # insert Node::Group before Node::(If|Loop|Unless) and insert Node::GrooupEnd after Node::(IfEnd|LoopEnd|UnlessEnd) to make easier to convert.

@@ -48,12 +48,7 @@ sub test_error_message {
 
     my $parser = HTML::Template::Parser->new;
     eval {
-        my $list = $parser->parse($template_string);
-        my $tree = $parser->list_to_tree($list);
-        if(0){ # debug dump
-            require Data::Dumper;
-            print STDERR Data::Dumper->Dump([ $list ]);
-        }
+        my $tree = $parser->parse($template_string);
     };
     like($@, $error_message_re, "template_string is [$template_string]");
 }

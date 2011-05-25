@@ -35,8 +35,7 @@ sub write_test {
 
     my $parser = HTML::Template::Parser->new;
     my $writer = HTML::Template::Parser::TreeWriter::HTP->new;
-    my $list = $parser->parse($template_string);
-    my $tree = $parser->list_to_tree($list);
+    my $tree = $parser->parse($template_string);
     my $output = $writer->write($tree);
 
     is($output, $expected, "template_string is [$template_string]");

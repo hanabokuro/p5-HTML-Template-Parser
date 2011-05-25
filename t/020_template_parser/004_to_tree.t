@@ -272,8 +272,7 @@ sub test_to_tree {
     my($template_string, $expected) = @_;
 
     my $parser = HTML::Template::Parser->new;
-    my $list = $parser->parse($template_string);
-    my $tree = $parser->list_to_tree($list);
+    my $tree = $parser->parse($template_string);
 
     is_deeply($tree, YAML::Load($expected), "template_string is [$template_string]");
     if (0) {                    # for debug dump
