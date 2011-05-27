@@ -261,8 +261,7 @@ This document describes HTML::Template::Parser version 0.1.
     use HTML::Template::Parser::TreeWriter::TextXslate::Metakolon;
 
     my $parser = HTML::Template::Parser->new;
-    my $list = $parser->parse("<TMPL_VAR EXPR=html(name)>");
-    my $tree = $parser->list_to_tree($list);
+    my $tree = $parser->parse("<TMPL_VAR EXPR=html(name)>");
 
     my $writer = HTML::Template::Parser::TreeWriter::TextXslate::Metakolon->new;
     print $writer->write($tree);
