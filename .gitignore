@@ -7,3 +7,4 @@ META.yml
 MANIFEST*
 *.tar.gz
 inc/
+*~
