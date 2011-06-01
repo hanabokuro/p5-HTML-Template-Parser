@@ -1,3 +1,8 @@
+2011-06-01  Shigeki Morimoto  <shigeki.morimoto@mixi.co.jp>
+
+	* Changes: version 0.1002 release.
+	Add requires Class::Accessor::Fast.
+
 2011-05-27  Shigeki Morimoto  <shigeki.morimoto@mixi.co.jp>
 
 	* Changes: version 0.1001 relase.

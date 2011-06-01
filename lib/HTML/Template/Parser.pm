@@ -4,7 +4,7 @@ use 5.008_001;
 use strict;
 use warnings;
 
-our $VERSION = '0.1001';
+our $VERSION = '0.1002';
 
 use base qw(Class::Accessor::Fast);
 __PACKAGE__->mk_accessors(qw());
