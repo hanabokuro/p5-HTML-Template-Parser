@@ -1,3 +1,8 @@
+2011-06-03  Shigeki Morimoto  <shigeki.morimoto@mixi.co.jp>
+
+	* Changes: version 0.1003 release.
+	Add requires YAML.
+	
 2011-06-01  Shigeki Morimoto  <shigeki.morimoto@mixi.co.jp>
 
 	* Changes: version 0.1002 release.
