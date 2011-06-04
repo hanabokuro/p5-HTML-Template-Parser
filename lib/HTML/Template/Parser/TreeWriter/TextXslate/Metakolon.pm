@@ -54,7 +54,7 @@ sub _pre_Var {
         $src = $self->remove_escape_function($src);
         $is_raw = 0;
     }
-    if(lc($node->escape) eq 'html'){
+    if(lc($node->escape || '') eq 'html'){
         $node->escape(0);
         $is_raw = 0;
     }
