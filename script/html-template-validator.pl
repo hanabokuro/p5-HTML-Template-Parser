@@ -12,8 +12,7 @@ foreach my $template_file (@ARGV){
 
     eval {
         my $parser = HTML::Template::Parser->new;
-        my $list = $parser->parse($template_text);
-        my $tree = $parser->list_to_tree($list);
+        my $tree   = $parser->parse($template_text);
     };
     if($@){
         my $error = $@;

@@ -27,7 +27,6 @@ my $writer = $writer_plugin->new;
 
 my $template_text;
 { local $/; $template_text = <>; }
-my $list = $parser->parse($template_text);
-my $tree = $parser->list_to_tree($list);
+my $tree = $parser->parse($template_text);
 my $new_template_text = $writer->write($tree);
 print $new_template_text;
