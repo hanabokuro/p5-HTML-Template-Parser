@@ -1,3 +1,9 @@
+2011-06-06  Shigeki Morimoto  <shigeki.morimoto@mixi.co.jp>
+
+	* Changes: version 0.1004 release.
+	Supress UUV warnings by @__gfx__
+	Update utilities in script/* using the newer interface by @__gfx__
+	
 2011-06-03  Shigeki Morimoto  <shigeki.morimoto@mixi.co.jp>
 
 	* Changes: version 0.1003 release.

@@ -4,7 +4,7 @@ use 5.008_001;
 use strict;
 use warnings;
 
-our $VERSION = '0.1003';
+our $VERSION = '0.1004';
 
 use base qw(Class::Accessor::Fast);
 __PACKAGE__->mk_accessors(qw());
@@ -282,6 +282,10 @@ Creates a new tempalte parser.
 =head2 B<< $parser->parse($string) >>
 
 Parse $string to tree.
+
+=head1 ACKNOWLEDGEMENT
+
+Thanks to __gfx__ for the bug reports and patches.
 
 =head1 AUTHOR
 
