@@ -58,9 +58,9 @@ line 1.
 5
 END;
 line 1.
-[% if(_is_empty(1)){ %]
+[% if(_has_value(1)){ %]
 2
-[% }elsif(_is_empty($foo($bar))){ %]
+[% }elsif(_has_value($foo($bar))){ %]
 3
 [% }else{ %]
 4
@@ -68,8 +68,8 @@ line 1.
 5
 END;
 
-write_test(q{<TMPL_IF EXPR="(not 1)">x</TMPL_IF>}, '[% if(_is_empty((not 1))){ %]x[% } %]');
-write_test(q{<TMPL_IF EXPR="(! 1)">x</TMPL_IF>}, '[% if(_is_empty((!1))){ %]x[% } %]');
+write_test(q{<TMPL_IF EXPR="(not 1)">x</TMPL_IF>}, '[% if(_has_value((not 1))){ %]x[% } %]');
+write_test(q{<TMPL_IF EXPR="(! 1)">x</TMPL_IF>}, '[% if(_has_value((!1))){ %]x[% } %]');
 
 write_test(<<'END;', <<'END;');
 <TMPL_LOOP NAME="loop_A">
@@ -118,13 +118,13 @@ END;
 write_test(<<'END;',<<'END;');
 <TMPL_IF EXPR=expr>x</TMPL_IF>
 END;
-[% if(_is_empty($expr)){ %]x[% } %]
+[% if(_has_value($expr)){ %]x[% } %]
 END;
 
 write_test(<<'END;',<<'END;');
 <TMPL_IF expr>x</TMPL_IF>
 END;
-[% if(_is_empty($expr)){ %]x[% } %]
+[% if(_has_value($expr)){ %]x[% } %]
 END;
 
 write_test(<<'END;',<<'END;');

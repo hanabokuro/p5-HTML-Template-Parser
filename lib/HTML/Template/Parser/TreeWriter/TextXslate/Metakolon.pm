@@ -12,6 +12,7 @@ sub new {
     $self->expr_writer(HTML::Template::Parser::TreeWriter::TextXslate::Metakolon::Expr->new);
     $self->context([]);
     $self->expr_writer->context($self->context);
+    $self->special_raw_var_map({});
     $self;
 }
 sub get_type {
@@ -48,11 +49,14 @@ sub _pre_String {
 sub _pre_Var {
     my($self, $node) = @_;
 
+    my $is_raw = 1;
     my $src = $node->name_or_expr->[1];
     if($self->is_escaped($src)){
+        $is_raw = 0;
         $src = $self->remove_escape_function($src);
     }
     if(lc($node->escape) eq 'html'){
+        $is_raw = 0;
         $node->escape(0);
     }
     my $name_or_expr = $self->expr_writer->write($src);
@@ -63,7 +67,6 @@ sub _pre_Var {
         $name_or_expr .= " | " . $node->escape;
     }
 
-    my $is_raw = 0;
     if($name_or_expr =~ /^\$(.*)/ and $self->special_raw_var_map->{$1}){
         $is_raw = 1;
     }

@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::More;
+use Test::More tests => 7;
 
 use HTML::Template::Parser;
 
@@ -90,8 +90,6 @@ test_to_list('<TMPL_LOOP NAME=loop1><TMPL_LOOP EXPR=bar(loop2)><TMPL_VAR EXPR=na
     [ 'loop_end', [ 1, 70 ] ],
     [ 'loop_end', [ 1, 82 ] ]
 ]);
-
-done_testing;
 
 sub test_to_list {
     my($template_string, $expected) = @_;
