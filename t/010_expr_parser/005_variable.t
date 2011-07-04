@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::More tests => 5 * 2;
+use Test::More tests => 6 * 2;
 
 use HTML::Template::Parser::ExprParser;
 
@@ -11,3 +11,4 @@ expr_eq('{b}', [ 'variable', 'b', ]);
 expr_eq('${c}', [ 'variable', 'c', ]);
 expr_eq('{s p a c e}', [ 'variable', 's p a c e', ]);
 expr_eq('${d.o.t}', [ 'variable', 'd.o.t', ]);
+expr_eq('${/top level var}', [ 'variable', '/top level var', ]);
