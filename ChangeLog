@@ -1,3 +1,8 @@
+2011-07-08  Shigeki Morimoto  <shigeki.morimoto@mixi.co.jp>
+
+	* Changes version 0.1006 release.
+	bug fix. somtimes 'not (expr)' is treated as 'call function name is "not"'.
+
 2011-07-04  Shigeki Morimoto  <shigeki.morimoto@mixi.co.jp>
 
 	* Changes: version 0.1005 release.
