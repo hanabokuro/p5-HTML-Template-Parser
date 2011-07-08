@@ -52,7 +52,7 @@ sum_op:		<leftop: prod_op    SUM     prod_op >		{ unexpand(@{$item[1]}); }
 prod_op:	<leftop: match_op   PROD    match_op >		{ unexpand(@{$item[1]}); }
 match_op:	not_op MATCH REGEXP							{ [ 'op', $item[2], $item[1], $item[3] ] }
 		| not_op
-not_op:	NOT term										{ [ 'op', $item[1], $item[2] ] }
+not_op:	(NOT|NOT_SYM) term										{ [ 'op', $item[1], $item[2] ] }
 		| term
 
 NOT:		'!'
