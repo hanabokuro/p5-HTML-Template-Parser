@@ -1,3 +1,7 @@
+2011-09-06  Shigeki Morimoto  <shigeki.morimoto@mixi.co.jp>
+	* Changes version 0.1007 release.
+	bug fix. H:T:Parser couldn't parser floating number.
+
 2011-07-08  Shigeki Morimoto  <shigeki.morimoto@mixi.co.jp>
 
 	* Changes version 0.1006 release.

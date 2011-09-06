@@ -6,5 +6,6 @@ Makefile*
 META.yml
 MANIFEST*
 *.tar.gz
-inc/
+inc
 *~
+HTML-Template-Parser-*

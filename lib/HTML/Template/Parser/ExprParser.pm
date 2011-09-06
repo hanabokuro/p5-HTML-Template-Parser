@@ -76,7 +76,7 @@ term:
 function: NAME '(' expr(s? /,/) ')' { [ 'function', $item[1], @{$item[3]} ] }
 
 REGEXP:		m!/[^/]*/i?!		{ [ 'regexp', $item[1] ] }
-NUMBER:		/[+-]?\d+/			{ [ 'number', $item[1]+0 ]; }
+NUMBER:		/[+-]?\d+(\.\d+)?/			{ [ 'number', $item[1]+0 ]; }
 STRING:		/"([^\"]*)"/		{ [ 'string', $1, ]; }
 STRING:		/'([^\']*)'/		{ [ 'string', $1, ]; }
 VARIABLE:	/[_a-z][_a-z0-9]*/i { [ 'variable', $item[1] ] }
