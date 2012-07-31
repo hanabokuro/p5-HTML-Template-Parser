@@ -4,7 +4,7 @@ use 5.008_001;
 use strict;
 use warnings;
 
-our $VERSION = '0.1007';
+our $VERSION = '0.1008';
 
 use base qw(Class::Accessor::Fast);
 __PACKAGE__->mk_accessors(qw());
@@ -118,6 +118,9 @@ sub _get_parser_instance {
 
       if($name_or_expr->[0] eq 'name'){
           my $name = $name_or_expr->[1];
+          if($name =~ /^\$/){
+            die "Can't use \${name} at NAME. [$name]\n";
+          }
           $name =~ s/\$?{([^}]+)}/$1/;
           return [ 'name', [ 'variable', $name ] ];
       }
