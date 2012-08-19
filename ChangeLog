@@ -1,3 +1,8 @@
+2012-08-19  Shigeki Morimoto  <shigeki.morimoto@mixi.co.jp>
+	* Changes version 0.1009 release.
+	nothing changeed...
+	I uploaded empty tgz to pause. And pause doesnt allow to upload file that has same name.
+
 2012-07-31  Shigeki Morimoto  <shigeki.morimoto@mixi.co.jp>
 	* Changes version 0.1008 release.
 	bug fix. NAME shouldn't accept '${name}' format.
