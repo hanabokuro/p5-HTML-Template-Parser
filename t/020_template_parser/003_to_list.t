@@ -1,12 +1,8 @@
 use strict;
 use warnings;
-use Test::More tests => 7;
+use Test::More tests => 6;
 
 use HTML::Template::Parser;
-
-test_to_list(q!<tmpl_var name='${foo}'>!, [
-    [ 'var', [ 1, 1 ], ['name', ['variable', 'foo']], undef, undef],
-]);
 
 test_to_list(q!<tmpl_var expr='${foo}'>!, [
     [ 'var', [ 1, 1 ], ['expr', ['variable', 'foo']], undef, undef],
