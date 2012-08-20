@@ -47,8 +47,14 @@ sub _template_string_to_list {
         my $tag_temp = $tag;
         my $parsed_tag;
         # capture error message.
-        open(Parse::RecDescent::ERROR, '>', \my $error_string) or die "open:[$!]\n";
+        my $error_string = '';
         eval {
+            local (*STDERR, *Parse::RecDescent::ERROR);
+            if(Parse::RecDescent->can('_write_ERROR')){ # @@@ @@@
+                open(STDERR, '>:scalar', \$error_string);
+            }else{
+                open(Parse::RecDescent::ERROR, '>', \my $error_string) or die "open:[$!]\n";
+            }
             $parsed_tag = $self->_get_parser_instance->tag(\$tag_temp);
         };
         if($@){
