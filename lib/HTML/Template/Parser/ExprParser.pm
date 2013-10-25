@@ -62,9 +62,9 @@ SUM:		'+' | '-'
 COMP:		/>=?|<=?|!=|==|le|ge|eq|ne|lt|gt/
 AND:		'&&'
 OR:			'||'
-NOT_SYM:	'not'
-AND_SYM:	'and'
-OR_SYM:		'or'
+NOT_SYM:	/not(?!\w)/
+AND_SYM:	/and(?!\w)/
+OR_SYM:		/or(?!\w)/
 
 term:
 	function
